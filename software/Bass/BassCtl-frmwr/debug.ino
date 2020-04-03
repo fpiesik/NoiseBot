@@ -1,0 +1,10 @@
+//Serial.print("all=");
+//  Serial.print(AudioProcessorUsage());
+//  Serial.print(",");
+//  Serial.print(AudioProcessorUsageMax());
+//  Serial.print("    ");
+//  Serial.print("Memory: ");
+//  Serial.print(AudioMemoryUsage());
+//  Serial.print(",");
+//  Serial.print(AudioMemoryUsageMax());
+//  Serial.println("    ");
