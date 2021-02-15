@@ -1,154 +1,209 @@
-include <libs/rcube.scad>;
-include <parameter.scad>;
+include <parameter.scad>
+strSpanB=10;
+bodySlotX=100;
 
-module kickup(orientation){
+//kickup(0);
+//cap();
 
-hub=4;
-
-top=4;
-
-magdia=5.7;
-magZ=20;
-magnutdia=9.5;
-magnutZ=4;
-magthreadZ=magnutZ*2;
-
-bottom=magZ-hub+1+magthreadZ;
-
-zAdjDia=kickup_zAdjDia;
-zAdjL=kickup_zAdjL;
-zAdjDist=kickup_zAdjDist;
-zAdjOff=kickup_zAdjOff;
-
-coildia=14;
-upperidlerZ=2;
-loweridlerZ=2;
-threaddepth=4;
-coilZ=18; //magZ-bottom+threaddepth;
-echo(coilZ);
-magholedia=magdia;
-wallthick=1;
-coilthreaddia=4.9;
-
-rampZ=3;
-rampdia=coildia;
-
-
-innerX=15;
-innerY=16;
-innerZ=coilZ+hub;
-
-baseX=kickup_baseX;
-baseY=kickup_baseY;
-baseZ=innerZ+bottom+top;
-echo(baseZ);
-
-
-jackX=6.5;
-jackY=3.5;
-jackZ=10;
-jacksupport=2;
-jackpindia=1.5;
-jackpindist=2.54;
-jackpinsupport=1.5;
-
-mountsupportY=2;
-
+module kickup(orient){
 $fn=32;
+strings=2;
+spacing=strSpanB;//52;
+echo (spacing);
+diameter=15;
+wall=2;
+coilZ=15;
+bottomZ=2;
+t=0.3;
+ySpacing=12;
 
-solenoid();
+bX = slotXY;
+bY=ySpacing+diameter+wall*1;
+bZ=coilZ+bottomZ+t;
 
-module solenoid(){
+tX = bX;
+tY=bY;
+hub=3;
+magZ=3.1;
+tbottomZ=3;
+tZ=hub+magZ+tbottomZ;
+tDia=6.7;//6.5;
+screwTdia=4.3;
+
+conMntX=2.54;
+conMntY=6.3;
+conMntZ=12;
+conWt=1.5;
+
+screwMdia=4.3;
+screwAdia=4.3;
+
+mntTh=4.5;
+mX=bX+slotXY+mntTh;
 
 
-module Ccube( size, align = [ 0, 0, 0 ] ){
- translate(size/2*[[align[0],0,0],[0,align[1],0],[0,0,align[2]]])
-  cube( size, center = true );
+module mnt(){
+difference(){
+    union(){
+        translate([-mX/2+bX/2,0,-mntTh])rcube([mX,bY,mntTh],3);
+        translate([-mX+bX/2+mntTh/2,0,-mntTh])rcube([mntTh,bY,bZ+mntTh+tZ],0.1);
+    }
+    hull(){
+    translate([-bX/2-slotXY,0,slotXY/2])rotate([0,-90,0])cylinder(d=m5Dia,h=bZ,center=true);
+    translate([-bX/2-slotXY,0,(bZ+tZ)-m5Dia*1.5])rotate([0,-90,0])cylinder(d=m5Dia,h=bZ,center=true);
+    }
+    
+    translate([0,bY/2-screwMdia,-mntTh-1])cylinder(d=screwMdia,h=bZ);
+    translate([0,-bY/2+screwMdia,-mntTh-1])cylinder(d=screwMdia,h=bZ);
+    
+    translate([0,0,-mntTh-1])cylinder(d=screwMdia*2+1,h=bZ);
+    translate([-bX/2+conMntX/2,0,0])cube([conMntX+conWt,conMntY+conWt,conMntZ],center=true);
+}
 }
 
 module base(){
-    
+$fn=16;
+cableDia=2;
 difference(){
-}
+    union(){
+        translate([0,0,0])rcube([bX,bY,bZ],3);
+        //translate([bX/2+(conMntX+conWt)/2,0,0])rcube([conMntX+conWt,conMntY+conWt*2,conMntZ],0.1);  
+    }
+
+translate([bX/2-(conMntX)/2+1,0,0])rcube([conMntX+2,conMntY,conMntZ],0.1); 
 translate([0,0,0]){
+translate([0,0,bottomZ])rotate([0,0,30])cylinder(d=diameter,h=100,$fn=6);
+translate([0,0,0])cylinder(d=screwAdia,h=100);
+translate([0,0,conMntZ-cableDia/2])rotate([0,90,0])cylinder(d=cableDia,h=100);
+}
+translate([0,bY/2-screwMdia,0])cylinder(d=screwMdia,h=bZ);
+translate([0,-bY/2+screwMdia,0])cylinder(d=screwMdia,h=bZ);
+}
+}
+
+module top(){
+$fn=16;
 difference(){
-Ccube([baseX,baseY,baseZ],[0,0,1]);
-translate([0,0,bottom])Ccube([innerX,innerY,innerZ],[0,0,1]);
-cylinder(d=magdia,h=baseZ+1);
-hull(){
-translate([0,0,magthreadZ-magnutZ])rotate([0,0,30])cylinder(d=magnutdia,h=magnutZ,$fn=6);
-translate([0,-baseY,magthreadZ-magnutZ])rotate([0,0,30])cylinder(d=magnutdia,h=magnutZ,$fn=6);
+translate([0,0,0])rcube([tX,tY,tZ],3);
+
+translate([0,0,0]){
+
+translate([0,0,-tbottomZ])cylinder(d=tDia,h=tZ);
+cylinder(d=screwTdia,h=tZ);
 }
-hull(){
-translate([zAdjDist/2,0,bottom/2-zAdjL/2+zAdjOff])rotate([90,0,0])cylinder(d=zAdjDia,h=baseZ*2,center=true);
-translate([zAdjDist/2,0,bottom/2+zAdjL/2+zAdjOff])rotate([90,0,0])cylinder(d=zAdjDia,h=baseZ*2,center=true);
+translate([0,bY/2-screwMdia,0])cylinder(d=screwMdia,h=tZ);
+translate([0,-bY/2+screwMdia,0])cylinder(d=screwMdia,h=tZ);
 }
-hull(){
-translate([-zAdjDist/2,0,bottom/2-zAdjL/2+zAdjOff])rotate([90,0,0])cylinder(d=zAdjDia,h=baseZ*2,center=true);
-translate([-zAdjDist/2,0,bottom/2+zAdjL/2+zAdjOff])rotate([90,0,0])cylinder(d=zAdjDia,h=baseZ*2,center=true);
 }
-}}
+
+
+module rcube(size,radius){
+linear_extrude(height=size[2])
+if(radius>0){
+hull()
+{
+    // place 4 circles in the corners, with the given radius
+    translate([(-size[0]/2)+(radius), (-size[1]/2)+(radius), 0])
+    circle(r=radius);
+
+    translate([(size[0]/2)-(radius), (-size[1]/2)+(radius), 0])
+    circle(r=radius);
+
+    translate([(-size[0]/2)+(radius), (size[1]/2)-(radius), 0])
+    circle(r=radius);
+
+    translate([(size[0]/2)-(radius), (size[1]/2)-(radius), 0])
+    circle(r=radius);
 }
+}
+if(radius==0){
+translate([0,0,size[2]/2])cube(size,center=true);
+}
+}
+
 
 
 
 module coil(){
+$fn=32;
+magholedia=4;
+wallthick=0.5;
+loweridlerZ=1.8;
+upperidlerZ=1.8;
+rampBZ=0.2;
+rampTZ=0.2;
+coildia=14;
+rampdia=coildia;
+threaddepth=5;
+roofZ=loweridlerZ;
+
 difference(){
 union(){
 cylinder(d=magholedia+wallthick*2,h=coilZ);
-translate([0,0,loweridlerZ])cylinder(d1=rampdia,d2=magholedia+wallthick*2,h=rampZ);
-translate([0,0,coilZ-upperidlerZ-rampZ])cylinder(d2=rampdia,d1=magholedia+wallthick*2,h=rampZ);
-translate([0,0,coilZ-upperidlerZ])cylinder(d=coildia,h=upperidlerZ);
+translate([0,0,loweridlerZ])cylinder(d1=rampdia,d2=magholedia+wallthick*2,h=rampBZ,$fn=6);
+translate([0,0,coilZ-upperidlerZ-rampTZ])cylinder(d2=rampdia/100*100,d1=magholedia+wallthick*2,h=rampTZ,$fn=6);
+translate([0,0,coilZ-upperidlerZ])cylinder(d=coildia/100*100,h=upperidlerZ,,$fn=6);
 //Ccube([coildia,coildia,upperidlerZ],[0,0,1]);
 translate([0,0,0]){
-Ccube([coildia,coildia,loweridlerZ],[0,0,1]);
+//Ccube([coildia,coildia,loweridlerZ],[0,0,1]);
+cylinder(d=coildia,h=loweridlerZ,$fn=6);
 
 }
 }
-translate([0,0,threaddepth]){
-cylinder(d=magholedia,h=coilZ);}
-cylinder(d=coilthreaddia,h=coilZ+1);
+
+translate([0,0,-roofZ])cylinder(d=magholedia,h=coilZ);
+//cylinder(d=coilthreaddia,h=coilZ+1);
 }}
 
-module mount(){
-wthick=4;
-edgeR=3;
 
-slotKickD=-strPosY-slotXY/2-kickup_baseY/2;
-ax=slotXY*2+wthick;
-ay=slotXY+slotKickD+wthick;
-az=kickup_baseX;
+if(orient==0){
+translate([-slotXY/2,-(slotXY/2+bX/2),0])rotate([-90,0,-90]){
+rotate([0,0,180]){
+base();
+translate([0,0,bZ])rotate([0,0,0])top();
+}
+mnt();
+//translate([0,tY+0,0])rotate([30,0,0])rotate([0,90,0])coil();
+}
+}
 
-scrwD=2.6;
+if(orient==1){
+base();
+translate([0,tY+28,tZ])rotate([180,0,0])top();
+translate([0,tY+0,0])rotate([30,0,0])rotate([0,90,0])coil();
+}
+if(orient==2){
+translate([0,0,-bZ-tZ]){
+rotate([0,0,180]){
+base();
+translate([0,0,bZ])rotate([0,0,0])top();
+}
+mnt();
+//translate([0,tY+0,0])rotate([30,0,0])rotate([0,90,0])coil();
+}
+}
 
-t=0.2;
+if(orient==3){
+translate([0,0,0]){
+mnt();
+//translate([0,tY+0,0])rotate([30,0,0])rotate([0,90,0])coil();
+}
+}
+}
+
+module cap(){
+i_dia=8;
+o_dia=10.5;
+$fn=32;
+//headZ=4;
 difference(){
-    translate([-slotXY/2-wthick/2,-slotKickD/2+wthick/2,-az/2])rcube([ax,ay,az],edgeR);
-    translate([slotXY/2,-slotXY/2,-az/2-1])rcube([slotXY*2+t,slotXY*2+t,az*2],0.1);
-    rotate([-90,0,0])cylinder(d=m5Dia,h=slotXY);
-    hull(){
-    translate([-slotXY*0.65,0,kickup_zAdjDist/2])rotate([-90,0,0])cylinder(d=scrwD,h=slotXY*2,center=true);
-    translate([-slotXY*1.4,0,kickup_zAdjDist/2])rotate([-90,0,0])cylinder(d=scrwD,h=slotXY*2,center=true);
-    }
-    hull(){
-    translate([-slotXY*0.65,0,-kickup_zAdjDist/2])rotate([-90,0,0])cylinder(d=scrwD,h=slotXY*2,center=true);
-    translate([-slotXY*1.4,0,-kickup_zAdjDist/2])rotate([-90,0,0])cylinder(d=scrwD,h=slotXY*2,center=true);
-    }
+union(){
+difference(){
+sphere(d=o_dia);
+translate([0,0,-o_dia/2])cube([o_dia,o_dia,o_dia],center=true);}
+translate([0,0,-i_dia/2])cylinder(d=o_dia,h=i_dia/2);
 }
-
-}
-
-if(orientation==1){
-translate([0,strPosY,-39]){
-base();
-translate([0,0,bottom+threaddepth])coil();}
-translate([0,slotXY+strPosY,0])rotate([0,-90,0])mount();
-}
-
-if(orientation==2){
-base();
-translate([25,0,0])rotate([90,0,0])coil();
-}
-
+translate([0,0,-i_dia/2])cylinder(d=i_dia,h=i_dia/2);
+scale([1,1,0.5])sphere(d=i_dia);
 }
 }

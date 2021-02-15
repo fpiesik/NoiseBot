@@ -28,6 +28,8 @@ byte chExc=2; //midi channel for notes to excite the strings
 byte kickNotes[nStr]={44,45,46}; //notes to activate the kickup
 byte kickOn[nStr];
 byte lastKickOn[nStr];
+float kickGain=1;
+float kickGainCC=40;
 
 //---motors
 byte motorNotes[nStr]={48,49,50};
@@ -95,6 +97,10 @@ AudioAmplifier           preamp1;
 AudioAmplifier           preamp2;
 AudioAmplifier           preamp3;
 
+AudioAmplifier           envAmp1;
+AudioAmplifier           envAmp2;
+AudioAmplifier           envAmp3;
+
 AudioEffectWaveshaper    coilShp1;
 AudioEffectWaveshaper    coilShp2;
 AudioEffectWaveshaper    coilShp3;
@@ -125,21 +131,25 @@ AudioConnection          patchCord13(preamp1, 0, mix1, 0);
 AudioConnection          patchCord14(preamp2, 0, mix1, 1);
 AudioConnection          patchCord15(preamp3, 0, mix1, 2);
 
-AudioConnection          patchCord16(envelope1, 0, mix2, 0);
-AudioConnection          patchCord17(envelope2, 0, mix2, 1);
-AudioConnection          patchCord18(envelope3, 0, mix2, 2);
+AudioConnection          patchCord16(envelope1, 0, envAmp1, 0);
+AudioConnection          patchCord17(envelope2, 0, envAmp2, 0);
+AudioConnection          patchCord18(envelope3, 0, envAmp3, 0);
 
-AudioConnection          patchCord19(coilShp1, 0, coilAmp1, 0);
-AudioConnection          patchCord20(coilShp2, 0, coilAmp2, 0);
-AudioConnection          patchCord21(coilShp3, 0, coilAmp3, 0);
+AudioConnection          patchCord19(envAmp1, 0, mix2, 0);
+AudioConnection          patchCord20(envAmp2, 0, mix2, 1);
+AudioConnection          patchCord21(envAmp3, 0, mix2, 2);
 
-AudioConnection          patchCord22(coilAmp1, 0, i2s_quad2, 0);
-AudioConnection          patchCord23(coilAmp2, 0, i2s_quad2, 1);
-AudioConnection          patchCord24(coilAmp3, 0, i2s_quad2, 2);
+AudioConnection          patchCord22(coilShp1, 0, coilAmp1, 0);
+AudioConnection          patchCord23(coilShp2, 0, coilAmp2, 0);
+AudioConnection          patchCord24(coilShp3, 0, coilAmp3, 0);
 
-AudioConnection          patchCord25(mix1, 0, mix3, 0);
-AudioConnection          patchCord26(mix2, 0, mix3, 1);
-AudioConnection          patchCord27(mix3, 0, i2s_quad2, 3);
+AudioConnection          patchCord25(coilAmp1, 0, i2s_quad2, 0);
+AudioConnection          patchCord26(coilAmp2, 0, i2s_quad2, 1);
+AudioConnection          patchCord27(coilAmp3, 0, i2s_quad2, 2);
+
+AudioConnection          patchCord28(mix1, 0, mix3, 0);
+AudioConnection          patchCord29(mix2, 0, mix3, 1);
+AudioConnection          patchCord30(mix3, 0, i2s_quad2, 3);
 
 
 //---Audio Module bundles
@@ -153,6 +163,10 @@ AudioEffectDelay          *coilDels[nStr] = {
 
 AudioAmplifier            *preamps[nStr] = {
   &preamp1, &preamp2, &preamp3
+};
+
+AudioAmplifier            *envAmps[nStr] = {
+  &envAmp1, &envAmp2, &envAmp3
 };
 
 AudioAmplifier            *coilAmps[nStr] = {
@@ -207,6 +221,10 @@ void setup() {
   
   for (int i=0; i<nStr; i++) {
     coilAmps[i]->gain(0.0001);
+  }
+
+  for (int i=0; i<nStr; i++) {
+    envAmps[i]->gain(1);
   }
 
   for (int i=0; i<nStr; i++) {

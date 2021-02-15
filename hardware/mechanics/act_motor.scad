@@ -1,8 +1,12 @@
 include <libs/rcube.scad>;
 include <parameter.scad>;
 
-mnt();
+//mnt();
 //prop();
+
+module rotor(){
+mnt();
+    }
 
 module mnt(){
 adj=15;

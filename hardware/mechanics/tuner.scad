@@ -6,21 +6,19 @@ include <parameter.scad>;
 module tuner(){
 $fn=32;
 tDia=tuner_tDia;
-bDi=tuner_bDi; //inner bearing dia
+bDi=tuner_bDi-0.6; //inner bearing dia
 bDo=tuner_bDo;
 zB=tuner_bZ;
-rThick=tuner_rThick;
 leverZ=tuner_leverZ;
 zPos=tuner_zPos;
 leverY=tuner_leverY;
-wthick=3.5;
+wthick=slotWthick;
 xA=22;
 y=slotXY+wthick*2;
 z=slotXY*2+wthick*2;
 scrwDia=4.6;
 nutDia=8;
 nutZ=3.6;
-strHDia=3;
 sltAxDst=25;
 tClr=3;   
 t=0.2;
@@ -28,9 +26,13 @@ tB=2; //Distance between wheel and top/bottom
 edgeR=3;
 railSink=12;
 railDia=12;
-topBtmH=8;
+
 topH=8;
 btmH=10;
+nutScrewDia=5.5;
+
+
+translate([0,0,tB+btmH/2]){
 wheel();
 
     difference(){
@@ -48,18 +50,19 @@ wheel();
         }
         translate([0,0,-tB-btmH-1])rcube([slotXY+t,slotXY+t,tDia*2],0.1);
         translate([0,-slotXY,-tB])rcube([slotXY*2,zB+t*2,tDia+tB*2],0.1);
-        translate([-slotXY/2+slotXY/4-slotXY-wthick*1.5,strPosY,-topBtmH-tB])cylinder(d=scrwDia,h=tDia+tB*2+topBtmH*4);
+        translate([-slotXY/2+slotXY/4-slotXY-wthick*1.5,strPosY,0])cylinder(d=scrwDia,h=tDia*2);
         hull(){
         translate([-slotXY/2+slotXY/4-slotXY-wthick*1.5,strPosY,tDia-nutZ/2])cylinder(d=nutDia,h=nutZ,$fn=6);
         translate([-slotXY/2+slotXY/4-slotXY-wthick*1.5-slotXY,strPosY,tDia-nutZ/2])cylinder(d=nutDia,h=nutZ,$fn=6);
         }
         translate([0,0,tDia/2])rotate([90,0,0])cylinder(d=bDi,h=slotXY*3);
         
-        translate([0,0,tDia/2])rotate([-90,0,0])cylinder(d=m5Dia,h=slotXY*3);
-        //translate([0,0,0])rotate([-90,0,0])cylinder(d=m5Dia,h=slotXY*3);
+        translate([0,0,tDia])rotate([-90,0,0])cylinder(d=m5Dia,h=slotXY*3);
+        translate([0,0,0])rotate([-90,0,0])cylinder(d=m5Dia,h=slotXY*3);
     
-        translate([0,strPosY,-tB-btmH/2])rotate([0,90,0])cylinder(d=5.7,h=slotXY+wthick*3,center=true);
+        translate([0,strPosY,-tB-btmH/2])rotate([0,90,0])cylinder(d=nutScrewDia,h=slotXY+wthick*3,center=true);
         }
+    }
 
 module wheel(){
 translate([0,-slotXY-zB/2,tDia/2])rotate([-90,-90,0]){

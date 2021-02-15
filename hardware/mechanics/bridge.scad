@@ -1,11 +1,11 @@
 include <libs/rcube.scad>;
 include <parameter.scad>;
 
-bridge();
+//bridge();
 
 module bridge(){
 edgeR=3;
-wthick=4;
+wthick=slotWthick;
 pzDia=28;
 pzSink=2;
 pzThick=0.6;
@@ -20,8 +20,8 @@ h=pzDia+wthick+2;
 t=0.1;
 $fn=32;
 
-piezo();
-translate([0,0,-bH])bridge();
+translate([0,0,-h/2])piezo();
+translate([0,0,-bH-h/2])strFix();
 //translate([slotXY/2+wthick+pzThick-pzSink,-slotXY,h/2])rotate([0,90,0])Pz2Str();
 
 module piezo(){
@@ -80,7 +80,7 @@ module Pz2Str(){
     translate([0,-scrwDst/2,1])cylinder(d=scrwD,h=20);
 }
 }
-module bridge(){
+module strFix(){
     
 xy=slotXY+wthick*2;
 h=bH;

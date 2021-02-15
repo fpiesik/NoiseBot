@@ -1,10 +1,6 @@
 $fn=36;
 
-MotorHeight=40;
-MotorWidth=42;
-ShaftDiameter=5;
-ShaftLength=28;
-FixingHolesInteraxis=31;
+//Nema17();
 
 module Part1(MotorWidth,Height,CornerFillet)
 {
@@ -46,7 +42,14 @@ module Part1(MotorWidth,Height,CornerFillet)
   }
 }
 
-module Nema17(MotorHeight,MotorWidth,ShaftDiameter,ShaftLength,FixingHolesInteraxis)
+module Nema17(){
+
+MotorHeight=40;
+MotorWidth=42;
+ShaftDiameter=5;
+ShaftLength=28;
+FixingHolesInteraxis=31;
+
 {
   difference()
   {
@@ -121,5 +124,6 @@ module Nema17(MotorHeight,MotorWidth,ShaftDiameter,ShaftLength,FixingHolesIntera
       cylinder(d=3,h=MotorHeight+5);
   }
 }
+}
 
-Nema17(MotorHeight,MotorWidth,ShaftDiameter,ShaftLength,FixingHolesInteraxis);
+

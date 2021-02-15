@@ -16,16 +16,26 @@ m3_dia=4.3;
 scrwPosZ=5;
 debug=0;
 
-//gearRack(2);
+//gearRack(0);
 
 module gearRack(type){
+if(type==0)rotate([0,0,0]){
+translate([0,0,0]){
+translate([0,pulley_b_ht+rackZ/2,0])rotate([90,0,0]){
+rotate([180,0,0]){
+translate([0,0,-gear_thickness-pulley_b_ht])gear(number_of_teeth=8,circular_pitch=360,gear_thickness=gear_thickness);}
+pulley();
+}
+translate([-10,0,0])rotate([90,0,-90])gear_rack(mod=2,number_of_teeth=80,rack_width=rackZ,rack_bottom_height=rack_bottom_height);
+}
+}
+
 if(type==2)rotate([90,0,90]){
 translate([0,0,-pulley_b_ht-gear_thickness/2]){
 rotate([180,0,0]){
 translate([0,0,-gear_thickness-pulley_b_ht])gear(number_of_teeth=8,circular_pitch=360,gear_thickness=gear_thickness);}
 pulley();
 }
-
 }
 if(type==1)translate([0,0,0])rotate([-90,0,0])gear_rack(mod=2,number_of_teeth=80,rack_width=rackZ,rack_bottom_height=rack_bottom_height);
 }

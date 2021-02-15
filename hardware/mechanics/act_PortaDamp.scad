@@ -3,12 +3,12 @@ include <libs/gearRack.scad>
 include <libs/rcube.scad>
 include <libs/Nema17.scad>
 
-//portaPitch();
+//portaDamp();
 
-module portaPitch(){
+module portaDamp(){
     
     gearXPos=57;
-    gearYPos=0;
+    gearYPos=strPosY;
     gearZPos=200;
 
     rackScrD=20;
@@ -18,10 +18,11 @@ module portaPitch(){
     bearGearD=25;
     mntGrD=20.5; //mount gear distance
     
-    translate([gearXPos,0,0])rackExt();
-    translate([0,0,gearZPos])stpprMnt();
-    slide();
-    translate([gearXPos,0,gearZPos])gearRack(0);
+    
+    //translate([gearXPos,0,0])rackExt();
+    translate([0,0,0])stpprMnt();
+    //slide();
+    translate([gearXPos,gearYPos,0])gearRack(0);
     //bearSpc();
     
 
@@ -235,27 +236,25 @@ wthick=4;
     
 //bearSpc();
 
+//profile connect
 difference(){
 translate([0,stepperAMY/2-wthick/2+(mntGrD-slotXY/2-stepperAMY/2)/2,-stepperAXY/2])rotate([0,0,0])rcube([slotXY+wthick*2,slotXY+wthick+stepperAMY+(mntGrD-slotXY/2-stepperAMY/2),stepperAXY],edgeR);
 translate([0,0,-stepperAXY/2-1])rotate([0,0,0])rcube([slotXY+t,slotXY+t*2,stepperAXY+2],0.1);
     translate([0,0,0])rotate([0,-90,0])cylinder(d=m5Dia,h=slotXY*2);
 }
-translate([0,-gearYPos,0])rotate([0,0,-90]){
+
+translate([0,gearYPos,0])rotate([0,0,-90]){
     translate([-stepperH-mntGrD-stepperAMY/2,gearXPos,0])rotate([0,90,0])Nema17(MotorHeight=stepperH,MotorWidth=stepperAXY,ShaftDiameter=5,ShaftLength=28,FixingHolesInteraxis=stepperASdist);
-
-
-    
-translate([stepperAMY/2-mntGrD,0,0]){
-rotate([-90,0,90]){
-difference(){
-union(){
-//translate([0,0,0])rcube([stepperAXY,stepperAXY,stepperAMY],edgeR);
-//translate([bearGearD,bOff,0])rcube([adjD+bDiaI*2,bD+bDiaI+wthick*2,stepperAMY],edgeR);
-  hull(){  
-translate([slotXY/2,0,0])rcube([slotXY,stepperAXY,stepperAMY],edgeR);
-translate([gearXPos,0,0])rcube([stepperAXY,stepperAXY,stepperAMY],edgeR);
-  }
-translate([gearXPos-bearGearD,bOff,0])rcube([adjD+bDiaI*2,bD+bDiaI+wthick*2,stepperAMY],edgeR); 
+  
+    translate([stepperAMY/2-mntGrD,0,0]){
+        rotate([-90,0,90]){
+            difference(){
+                union(){
+                    hull(){  
+                        translate([slotXY+0.5,0,0])rcube([slotXY,stepperAXY,stepperAMY],0.0001);
+                        translate([gearXPos,0,0])rcube([stepperAXY,stepperAXY,stepperAMY],edgeR);
+                    }
+    translate([gearXPos-bearGearD,bOff,0])rcube([adjD+bDiaI*2,bD+bDiaI+wthick*2,stepperAMY],edgeR); 
 }  
 
 translate([gearXPos,0,-0.5])cylinder(d=stepperADia, h=stepperAMY+1);

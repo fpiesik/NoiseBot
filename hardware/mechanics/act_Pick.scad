@@ -1,3 +1,9 @@
+
+module moPick(){
+    //pick();
+    rotate([0,180,90])servoMnt();
+}
+
 module pick(){
 scrDst=6;
 scrDia=2.5;
@@ -21,26 +27,27 @@ translate([strPosX-strDst+scrDst+adjDst/2,0,-1])cylinder(d=scrDia,h=h+2);
 
 module servoMnt(){
 
-srvX=13;
-srvY=23;
-srvShftP=30;
-srvYO=0;
-srvYOff=2.5;
-scrSDst=2.5;
-cblX=4;
-cblY=1.5;
-scrDst=10;
-    
-nScr=2;
-    
-//srvX=20;
-//srvY=41;
+//srvX=13;
+//srvY=23;
 //srvShftP=30;
 //srvYO=0;
-//scrSDst=4;
+//srvYOff=2.5;
+//scrSDst=2.5;
 //cblX=4;
 //cblY=1.5;
 //scrDst=10;
+    
+nScr=4;
+    
+srvX=20;
+srvY=41;
+srvShftP=30;
+srvYO=0;
+srvYOff=4;
+scrSDst=4;
+cblX=4;
+cblY=1.5;
+scrDst=10;
     
 wthick=4;
 srvSltD=2;

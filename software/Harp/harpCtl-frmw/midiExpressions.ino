@@ -6,8 +6,9 @@ void nOn(byte channel, byte note, byte velocity){
     for(int s=0;s<nStr;s++){
       if(note==kickNotes[s]){
         //coil(s,1);
-        kick(s,velocity/127.0);
+        if(kickGain>0)kick(s,kickGain*velocity/127.0);
         kickOn[s]=1;
+        envAmps[s]->gain(velocity/127.0);
         //envs1[s]->noteOn();
       }
     }
@@ -51,6 +52,9 @@ void nOff(byte channel, byte note, byte velocity){
 } 
 
 void ccCh(byte channel, byte control, byte value){
+
+//kickup
+if (control==kickGainCC)kickGain=value/127.0;
 
 //---Envelopes
 bool updEnvNeeded=0;
