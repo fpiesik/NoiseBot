@@ -1,0 +1,883 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Created with Fritzing (http://www.fritzing.org/) -->
+<netlist date="Do. Nov. 30 20:41:51 2023" sketch="mainboard.fzz">
+ <net>
+  <connector name="pin3" id="connector2">
+   <part id="132251" label="SrvOut2" title="Generic female header - 3 pins"/>
+  </connector>
+  <connector name="pin3" id="connector2">
+   <part id="132250" label="SrvOut2" title="Generic female header - 3 pins"/>
+  </connector>
+  <connector name="pin2" id="connector1">
+   <part id="143330" label="DCconvOut" title="Generic female header - 2 pins"/>
+  </connector>
+  <connector name="pin2" id="connector1">
+   <part id="143331" label="DCconvOut" title="Generic female header - 2 pins"/>
+  </connector>
+  <connector name="pin3" id="connector2">
+   <part id="131810" label="SrvOu1" title="Generic female header - 3 pins"/>
+  </connector>
+  <connector name="pin3" id="connector2">
+   <part id="131811" label="SrvOu1" title="Generic female header - 3 pins"/>
+  </connector>
+  <connector name="Pin 0" id="connector0">
+   <part id="854365240" label="R4" title="100kΩ Resistor"/>
+  </connector>
+  <connector name="Pin 0" id="connector0">
+   <part id="854365241" label="R4" title="100k Ω Resistor"/>
+  </connector>
+  <connector name="pin2" id="connector1">
+   <part id="854182390" label="pull1" title="Generic female header - 2 pins"/>
+  </connector>
+  <connector name="pin2" id="connector1">
+   <part id="854182391" label="pull1" title="Generic female header - 2 pins"/>
+  </connector>
+  <connector name="source" id="connector2">
+   <part id="854107250" label="Q1" title="Basic FET N-Channel"/>
+  </connector>
+  <connector name="source" id="connector2">
+   <part id="854107251" label="Q1" title="Basic FET N-Channel"/>
+  </connector>
+  <connector name="GND" id="connector14">
+   <part id="855137682" label="Pololu A1" title="Pololu A4988"/>
+  </connector>
+  <connector name="GND" id="connector14">
+   <part id="855137680" label="Pololu A1" title="Pololu A4988"/>
+  </connector>
+  <connector name="pin2" id="connector1">
+   <part id="144471" label="DCconvIn" title="Generic female header - 2 pins"/>
+  </connector>
+  <connector name="pin2" id="connector1">
+   <part id="144470" label="DCconvIn" title="Generic female header - 2 pins"/>
+  </connector>
+  <connector name="Pin 0" id="connector0">
+   <part id="854364260" label="R3" title="100kΩ Resistor"/>
+  </connector>
+  <connector name="Pin 0" id="connector0">
+   <part id="854364261" label="R3" title="100k Ω Resistor"/>
+  </connector>
+  <connector name="pin2" id="connector1">
+   <part id="854183590" label="pull2" title="Generic female header - 2 pins"/>
+  </connector>
+  <connector name="pin2" id="connector1">
+   <part id="854183591" label="pull2" title="Generic female header - 2 pins"/>
+  </connector>
+  <connector name="GND" id="connector8">
+   <part id="855137682" label="Pololu A1" title="Pololu A4988"/>
+  </connector>
+  <connector name="GND" id="connector8">
+   <part id="855137680" label="Pololu A1" title="Pololu A4988"/>
+  </connector>
+  <connector name="source" id="connector2">
+   <part id="854108480" label="Q2" title="Basic FET N-Channel"/>
+  </connector>
+  <connector name="source" id="connector2">
+   <part id="854108481" label="Q2" title="Basic FET N-Channel"/>
+  </connector>
+  <connector name="GND" id="connector0">
+   <part id="124090" label="Power plug1" title="Power plug"/>
+  </connector>
+  <connector name="GND" id="connector0">
+   <part id="124091" label="Power plug1" title="Power plug"/>
+  </connector>
+  <connector name="GND" id="connector2">
+   <part id="124090" label="Power plug1" title="Power plug"/>
+  </connector>
+  <connector name="GND" id="connector2">
+   <part id="124091" label="Power plug1" title="Power plug"/>
+  </connector>
+  <connector name="GND" id="connector14">
+   <part id="855137672" label="Pololu A2" title="Pololu A4988"/>
+  </connector>
+  <connector name="GND" id="connector14">
+   <part id="855137670" label="Pololu A2" title="Pololu A4988"/>
+  </connector>
+  <connector name="GND" id="connector19">
+   <part id="104651" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+  <connector name="GND" id="connector19">
+   <part id="104650" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+  <connector name="GND" id="connector32">
+   <part id="104650" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+  <connector name="GND" id="connector32">
+   <part id="104651" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+  <connector name="GND" id="connector8">
+   <part id="855137670" label="Pololu A2" title="Pololu A4988"/>
+  </connector>
+  <connector name="GND" id="connector8">
+   <part id="855137672" label="Pololu A2" title="Pololu A4988"/>
+  </connector>
+  <connector name="pin1" id="connector0">
+   <part id="854109471" label="DIn2" title="Generic female header - 2 pins"/>
+  </connector>
+  <connector name="pin1" id="connector0">
+   <part id="854109470" label="DIn2" title="Generic female header - 2 pins"/>
+  </connector>
+  <connector name="pin1" id="connector0">
+   <part id="854109051" label="DIn1" title="Generic female header - 2 pins"/>
+  </connector>
+  <connector name="pin1" id="connector0">
+   <part id="854109050" label="DIn1" title="Generic female header - 2 pins"/>
+  </connector>
+  <connector name="pin1" id="connector0">
+   <part id="854118771" label="AIn1" title="Generic female header - 3 pins"/>
+  </connector>
+  <connector name="pin1" id="connector0">
+   <part id="854118770" label="AIn1" title="Generic female header - 3 pins"/>
+  </connector>
+  <connector name="pin1" id="connector0">
+   <part id="854122041" label="AIn2" title="Generic female header - 3 pins"/>
+  </connector>
+  <connector name="pin1" id="connector0">
+   <part id="854122040" label="AIn2" title="Generic female header - 3 pins"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="VCC" id="connector1">
+   <part id="124091" label="Power plug1" title="Power plug"/>
+  </connector>
+  <connector name="VCC" id="connector1">
+   <part id="124090" label="Power plug1" title="Power plug"/>
+  </connector>
+  <connector name="cathode" id="connector0">
+   <part id="854428231" label="D2" title="Rectifier Diode"/>
+  </connector>
+  <connector name="cathode" id="connector0">
+   <part id="854428230" label="D2" title="Rectifier Diode"/>
+  </connector>
+  <connector name="pin1" id="connector0">
+   <part id="144471" label="DCconvIn" title="Generic female header - 2 pins"/>
+  </connector>
+  <connector name="pin1" id="connector0">
+   <part id="144470" label="DCconvIn" title="Generic female header - 2 pins"/>
+  </connector>
+  <connector name="VMOT" id="connector15">
+   <part id="855137680" label="Pololu A1" title="Pololu A4988"/>
+  </connector>
+  <connector name="VMOT" id="connector15">
+   <part id="855137682" label="Pololu A1" title="Pololu A4988"/>
+  </connector>
+  <connector name="VMOT" id="connector15">
+   <part id="855137670" label="Pololu A2" title="Pololu A4988"/>
+  </connector>
+  <connector name="VMOT" id="connector15">
+   <part id="855137672" label="Pololu A2" title="Pololu A4988"/>
+  </connector>
+  <connector name="pin2" id="connector1">
+   <part id="854109181" label="MosOut2" title="Generic female header - 2 pins"/>
+  </connector>
+  <connector name="pin2" id="connector1">
+   <part id="854109180" label="MosOut2" title="Generic female header - 2 pins"/>
+  </connector>
+  <connector name="pin2" id="connector1">
+   <part id="854109451" label="MosOut1" title="Generic female header - 2 pins"/>
+  </connector>
+  <connector name="pin2" id="connector1">
+   <part id="854109450" label="MosOut1" title="Generic female header - 2 pins"/>
+  </connector>
+  <connector name="VIN" id="connector31">
+   <part id="104650" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+  <connector name="VIN" id="connector31">
+   <part id="104651" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+  <connector name="cathode" id="connector0">
+   <part id="854428951" label="D3" title="Rectifier Diode"/>
+  </connector>
+  <connector name="cathode" id="connector0">
+   <part id="854428950" label="D3" title="Rectifier Diode"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="SLEEP" id="connector5">
+   <part id="855137680" label="Pololu A1" title="Pololu A4988"/>
+  </connector>
+  <connector name="SLEEP" id="connector5">
+   <part id="855137682" label="Pololu A1" title="Pololu A4988"/>
+  </connector>
+  <connector name="RESET" id="connector4">
+   <part id="855137682" label="Pololu A1" title="Pololu A4988"/>
+  </connector>
+  <connector name="RESET" id="connector4">
+   <part id="855137680" label="Pololu A1" title="Pololu A4988"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="Pin 1" id="connector1">
+   <part id="854369031" label="R6" title="100 Ω Resistor"/>
+  </connector>
+  <connector name="Pin 1" id="connector1">
+   <part id="854369030" label="R6" title="100Ω Resistor"/>
+  </connector>
+  <connector name="D10" id="connector28">
+   <part id="104650" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+  <connector name="D10" id="connector28">
+   <part id="104651" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="Pin 1" id="connector1">
+   <part id="854367071" label="R5" title="100 Ω Resistor"/>
+  </connector>
+  <connector name="Pin 1" id="connector1">
+   <part id="854367070" label="R5" title="100Ω Resistor"/>
+  </connector>
+  <connector name="D11/MOSI" id="connector29">
+   <part id="104650" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+  <connector name="D11/MOSI" id="connector29">
+   <part id="104651" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="VDD" id="connector9">
+   <part id="855137680" label="Pololu A1" title="Pololu A4988"/>
+  </connector>
+  <connector name="VDD" id="connector9">
+   <part id="855137682" label="Pololu A1" title="Pololu A4988"/>
+  </connector>
+  <connector name="VDD" id="connector9">
+   <part id="855137670" label="Pololu A2" title="Pololu A4988"/>
+  </connector>
+  <connector name="VDD" id="connector9">
+   <part id="855137672" label="Pololu A2" title="Pololu A4988"/>
+  </connector>
+  <connector name="5V" id="connector34">
+   <part id="104650" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+  <connector name="5V" id="connector34">
+   <part id="104651" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+  <connector name="pin3" id="connector2">
+   <part id="854118771" label="AIn1" title="Generic female header - 3 pins"/>
+  </connector>
+  <connector name="pin3" id="connector2">
+   <part id="854118770" label="AIn1" title="Generic female header - 3 pins"/>
+  </connector>
+  <connector name="pin1" id="connector0">
+   <part id="854182391" label="pull1" title="Generic female header - 2 pins"/>
+  </connector>
+  <connector name="pin1" id="connector0">
+   <part id="854182390" label="pull1" title="Generic female header - 2 pins"/>
+  </connector>
+  <connector name="pin1" id="connector0">
+   <part id="854183591" label="pull2" title="Generic female header - 2 pins"/>
+  </connector>
+  <connector name="pin1" id="connector0">
+   <part id="854183590" label="pull2" title="Generic female header - 2 pins"/>
+  </connector>
+  <connector name="pin3" id="connector2">
+   <part id="854122040" label="AIn2" title="Generic female header - 3 pins"/>
+  </connector>
+  <connector name="pin3" id="connector2">
+   <part id="854122041" label="AIn2" title="Generic female header - 3 pins"/>
+  </connector>
+  <connector name="jumperConnector1" id="connector1">
+   <part id="854761071" label="Jumper1" title="Jumper"/>
+  </connector>
+  <connector name="jumperConnector1" id="connector1">
+   <part id="854761070" label="Jumper1" title="Jumper"/>
+  </connector>
+  <connector name="jumperConnector0" id="connector0">
+   <part id="854761071" label="Jumper1" title="Jumper"/>
+  </connector>
+  <connector name="jumperConnector0" id="connector0">
+   <part id="854761070" label="Jumper1" title="Jumper"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="pin2" id="connector1">
+   <part id="854163761" label="SJ2" title="Generic female header - 3 pins"/>
+  </connector>
+  <connector name="pin2" id="connector1">
+   <part id="854163760" label="SJ2" title="Generic female header - 3 pins"/>
+  </connector>
+  <connector name="MS2" id="connector2">
+   <part id="855137670" label="Pololu A2" title="Pololu A4988"/>
+  </connector>
+  <connector name="MS2" id="connector2">
+   <part id="855137672" label="Pololu A2" title="Pololu A4988"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="pin1" id="connector0">
+   <part id="854163761" label="SJ2" title="Generic female header - 3 pins"/>
+  </connector>
+  <connector name="pin1" id="connector0">
+   <part id="854163760" label="SJ2" title="Generic female header - 3 pins"/>
+  </connector>
+  <connector name="MS1" id="connector1">
+   <part id="855137670" label="Pololu A2" title="Pololu A4988"/>
+  </connector>
+  <connector name="MS1" id="connector1">
+   <part id="855137672" label="Pololu A2" title="Pololu A4988"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="pin3" id="connector2">
+   <part id="854163741" label="SJ1" title="Generic female header - 3 pins"/>
+  </connector>
+  <connector name="pin3" id="connector2">
+   <part id="854163740" label="SJ1" title="Generic female header - 3 pins"/>
+  </connector>
+  <connector name="MS3" id="connector3">
+   <part id="855137680" label="Pololu A1" title="Pololu A4988"/>
+  </connector>
+  <connector name="MS3" id="connector3">
+   <part id="855137682" label="Pololu A1" title="Pololu A4988"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="pin2" id="connector1">
+   <part id="854163741" label="SJ1" title="Generic female header - 3 pins"/>
+  </connector>
+  <connector name="pin2" id="connector1">
+   <part id="854163740" label="SJ1" title="Generic female header - 3 pins"/>
+  </connector>
+  <connector name="MS2" id="connector2">
+   <part id="855137680" label="Pololu A1" title="Pololu A4988"/>
+  </connector>
+  <connector name="MS2" id="connector2">
+   <part id="855137682" label="Pololu A1" title="Pololu A4988"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="pin1" id="connector0">
+   <part id="854163741" label="SJ1" title="Generic female header - 3 pins"/>
+  </connector>
+  <connector name="pin1" id="connector0">
+   <part id="854163740" label="SJ1" title="Generic female header - 3 pins"/>
+  </connector>
+  <connector name="MS1" id="connector1">
+   <part id="855137680" label="Pololu A1" title="Pololu A4988"/>
+  </connector>
+  <connector name="MS1" id="connector1">
+   <part id="855137682" label="Pololu A1" title="Pololu A4988"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="pin3" id="connector2">
+   <part id="854163761" label="SJ2" title="Generic female header - 3 pins"/>
+  </connector>
+  <connector name="pin3" id="connector2">
+   <part id="854163760" label="SJ2" title="Generic female header - 3 pins"/>
+  </connector>
+  <connector name="MS3" id="connector3">
+   <part id="855137670" label="Pololu A2" title="Pololu A4988"/>
+  </connector>
+  <connector name="MS3" id="connector3">
+   <part id="855137672" label="Pololu A2" title="Pololu A4988"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="D13/SCK" id="connector45">
+   <part id="104651" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+  <connector name="D13/SCK" id="connector45">
+   <part id="104650" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+  <connector name="pin2" id="connector1">
+   <part id="854109051" label="DIn1" title="Generic female header - 2 pins"/>
+  </connector>
+  <connector name="pin2" id="connector1">
+   <part id="854109050" label="DIn1" title="Generic female header - 2 pins"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="D12/MISO" id="connector30">
+   <part id="104650" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+  <connector name="D12/MISO" id="connector30">
+   <part id="104651" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+  <connector name="pin2" id="connector1">
+   <part id="854109471" label="DIn2" title="Generic female header - 2 pins"/>
+  </connector>
+  <connector name="pin2" id="connector1">
+   <part id="854109470" label="DIn2" title="Generic female header - 2 pins"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="pin1" id="connector0">
+   <part id="131811" label="SrvOu1" title="Generic female header - 3 pins"/>
+  </connector>
+  <connector name="pin1" id="connector0">
+   <part id="131810" label="SrvOu1" title="Generic female header - 3 pins"/>
+  </connector>
+  <connector name="D8" id="connector26">
+   <part id="104650" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+  <connector name="D8" id="connector26">
+   <part id="104651" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="pin1" id="connector0">
+   <part id="132250" label="SrvOut2" title="Generic female header - 3 pins"/>
+  </connector>
+  <connector name="pin1" id="connector0">
+   <part id="132251" label="SrvOut2" title="Generic female header - 3 pins"/>
+  </connector>
+  <connector name="D9" id="connector27">
+   <part id="104650" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+  <connector name="D9" id="connector27">
+   <part id="104651" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="D3" id="connector21">
+   <part id="104650" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+  <connector name="D3" id="connector21">
+   <part id="104651" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+  <connector name="STEP" id="connector6">
+   <part id="855137682" label="Pololu A1" title="Pololu A4988"/>
+  </connector>
+  <connector name="STEP" id="connector6">
+   <part id="855137680" label="Pololu A1" title="Pololu A4988"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="D5" id="connector23">
+   <part id="104650" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+  <connector name="D5" id="connector23">
+   <part id="104651" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+  <connector name="ENABLE" id="connector0">
+   <part id="855137672" label="Pololu A2" title="Pololu A4988"/>
+  </connector>
+  <connector name="ENABLE" id="connector0">
+   <part id="855137670" label="Pololu A2" title="Pololu A4988"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="STEP" id="connector6">
+   <part id="855137670" label="Pololu A2" title="Pololu A4988"/>
+  </connector>
+  <connector name="STEP" id="connector6">
+   <part id="855137672" label="Pololu A2" title="Pololu A4988"/>
+  </connector>
+  <connector name="D6" id="connector24">
+   <part id="104650" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+  <connector name="D6" id="connector24">
+   <part id="104651" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="pin1" id="connector0">
+   <part id="854109451" label="MosOut1" title="Generic female header - 2 pins"/>
+  </connector>
+  <connector name="pin1" id="connector0">
+   <part id="854109450" label="MosOut1" title="Generic female header - 2 pins"/>
+  </connector>
+  <connector name="drain" id="connector1">
+   <part id="854108481" label="Q2" title="Basic FET N-Channel"/>
+  </connector>
+  <connector name="drain" id="connector1">
+   <part id="854108480" label="Q2" title="Basic FET N-Channel"/>
+  </connector>
+  <connector name="anode" id="connector1">
+   <part id="854428231" label="D2" title="Rectifier Diode"/>
+  </connector>
+  <connector name="anode" id="connector1">
+   <part id="854428230" label="D2" title="Rectifier Diode"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="drain" id="connector1">
+   <part id="854107251" label="Q1" title="Basic FET N-Channel"/>
+  </connector>
+  <connector name="drain" id="connector1">
+   <part id="854107250" label="Q1" title="Basic FET N-Channel"/>
+  </connector>
+  <connector name="pin1" id="connector0">
+   <part id="854109181" label="MosOut2" title="Generic female header - 2 pins"/>
+  </connector>
+  <connector name="pin1" id="connector0">
+   <part id="854109180" label="MosOut2" title="Generic female header - 2 pins"/>
+  </connector>
+  <connector name="anode" id="connector1">
+   <part id="854428950" label="D3" title="Rectifier Diode"/>
+  </connector>
+  <connector name="anode" id="connector1">
+   <part id="854428951" label="D3" title="Rectifier Diode"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="pin1" id="connector0">
+   <part id="143331" label="DCconvOut" title="Generic female header - 2 pins"/>
+  </connector>
+  <connector name="pin1" id="connector0">
+   <part id="143330" label="DCconvOut" title="Generic female header - 2 pins"/>
+  </connector>
+  <connector name="pin2" id="connector1">
+   <part id="131811" label="SrvOu1" title="Generic female header - 3 pins"/>
+  </connector>
+  <connector name="pin2" id="connector1">
+   <part id="131810" label="SrvOu1" title="Generic female header - 3 pins"/>
+  </connector>
+  <connector name="pin2" id="connector1">
+   <part id="132251" label="SrvOut2" title="Generic female header - 3 pins"/>
+  </connector>
+  <connector name="pin2" id="connector1">
+   <part id="132250" label="SrvOut2" title="Generic female header - 3 pins"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="SLEEP" id="connector5">
+   <part id="855137670" label="Pololu A2" title="Pololu A4988"/>
+  </connector>
+  <connector name="SLEEP" id="connector5">
+   <part id="855137672" label="Pololu A2" title="Pololu A4988"/>
+  </connector>
+  <connector name="RESET" id="connector4">
+   <part id="855137672" label="Pololu A2" title="Pololu A4988"/>
+  </connector>
+  <connector name="RESET" id="connector4">
+   <part id="855137670" label="Pololu A2" title="Pololu A4988"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="Pin 0" id="connector0">
+   <part id="854367071" label="R5" title="100 Ω Resistor"/>
+  </connector>
+  <connector name="Pin 0" id="connector0">
+   <part id="854367070" label="R5" title="100Ω Resistor"/>
+  </connector>
+  <connector name="Pin 1" id="connector1">
+   <part id="854364261" label="R3" title="100k Ω Resistor"/>
+  </connector>
+  <connector name="Pin 1" id="connector1">
+   <part id="854364260" label="R3" title="100kΩ Resistor"/>
+  </connector>
+  <connector name="gate" id="connector0">
+   <part id="854108481" label="Q2" title="Basic FET N-Channel"/>
+  </connector>
+  <connector name="gate" id="connector0">
+   <part id="854108480" label="Q2" title="Basic FET N-Channel"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="Pin 0" id="connector0">
+   <part id="854369031" label="R6" title="100 Ω Resistor"/>
+  </connector>
+  <connector name="Pin 0" id="connector0">
+   <part id="854369030" label="R6" title="100Ω Resistor"/>
+  </connector>
+  <connector name="gate" id="connector0">
+   <part id="854107251" label="Q1" title="Basic FET N-Channel"/>
+  </connector>
+  <connector name="gate" id="connector0">
+   <part id="854107250" label="Q1" title="Basic FET N-Channel"/>
+  </connector>
+  <connector name="Pin 1" id="connector1">
+   <part id="854365241" label="R4" title="100k Ω Resistor"/>
+  </connector>
+  <connector name="Pin 1" id="connector1">
+   <part id="854365240" label="R4" title="100kΩ Resistor"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="D7" id="connector25">
+   <part id="104650" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+  <connector name="D7" id="connector25">
+   <part id="104651" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+  <connector name="DIR" id="connector7">
+   <part id="855137672" label="Pololu A2" title="Pololu A4988"/>
+  </connector>
+  <connector name="DIR" id="connector7">
+   <part id="855137670" label="Pololu A2" title="Pololu A4988"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="RESET" id="connector18">
+   <part id="104650" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+  <connector name="RESET" id="connector18">
+   <part id="104651" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+  <connector name="RESET" id="connector33">
+   <part id="104650" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+  <connector name="RESET" id="connector33">
+   <part id="104651" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="D2" id="connector20">
+   <part id="104650" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+  <connector name="D2" id="connector20">
+   <part id="104651" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+  <connector name="ENABLE" id="connector0">
+   <part id="855137682" label="Pololu A1" title="Pololu A4988"/>
+  </connector>
+  <connector name="ENABLE" id="connector0">
+   <part id="855137680" label="Pololu A1" title="Pololu A4988"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="A1" id="connector41">
+   <part id="104650" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+  <connector name="A1" id="connector41">
+   <part id="104651" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+  <connector name="pin2" id="connector1">
+   <part id="854122041" label="AIn2" title="Generic female header - 3 pins"/>
+  </connector>
+  <connector name="pin2" id="connector1">
+   <part id="854122040" label="AIn2" title="Generic female header - 3 pins"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="A3" id="connector39">
+   <part id="104650" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+  <connector name="A3" id="connector39">
+   <part id="104651" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="AREF" id="connector43">
+   <part id="104650" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+  <connector name="AREF" id="connector43">
+   <part id="104651" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="D4" id="connector22">
+   <part id="104650" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+  <connector name="D4" id="connector22">
+   <part id="104651" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+  <connector name="DIR" id="connector7">
+   <part id="855137682" label="Pololu A1" title="Pololu A4988"/>
+  </connector>
+  <connector name="DIR" id="connector7">
+   <part id="855137680" label="Pololu A1" title="Pololu A4988"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="A6" id="connector36">
+   <part id="104650" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+  <connector name="A6" id="connector36">
+   <part id="104651" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="3V3" id="connector44">
+   <part id="104650" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+  <connector name="3V3" id="connector44">
+   <part id="104651" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="D0/RX" id="connector17">
+   <part id="104650" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+  <connector name="D0/RX" id="connector17">
+   <part id="104651" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="A2" id="connector40">
+   <part id="104650" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+  <connector name="A2" id="connector40">
+   <part id="104651" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="A4" id="connector38">
+   <part id="104650" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+  <connector name="A4" id="connector38">
+   <part id="104651" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="A7" id="connector35">
+   <part id="104650" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+  <connector name="A7" id="connector35">
+   <part id="104651" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="D1/TX" id="connector16">
+   <part id="104650" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+  <connector name="D1/TX" id="connector16">
+   <part id="104651" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="pin2" id="connector1">
+   <part id="854118771" label="AIn1" title="Generic female header - 3 pins"/>
+  </connector>
+  <connector name="pin2" id="connector1">
+   <part id="854118770" label="AIn1" title="Generic female header - 3 pins"/>
+  </connector>
+  <connector name="A0" id="connector42">
+   <part id="104651" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+  <connector name="A0" id="connector42">
+   <part id="104650" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="1A" id="connector11">
+   <part id="855137670" label="Pololu A2" title="Pololu A4988"/>
+  </connector>
+  <connector name="1A" id="connector11">
+   <part id="855137672" label="Pololu A2" title="Pololu A4988"/>
+  </connector>
+  <connector name="pin2" id="connector1">
+   <part id="127541" label="StpOut2" title="Generic female header - 4 pins"/>
+  </connector>
+  <connector name="pin2" id="connector1">
+   <part id="127540" label="StpOut2" title="Generic female header - 4 pins"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="1B" id="connector10">
+   <part id="855137670" label="Pololu A2" title="Pololu A4988"/>
+  </connector>
+  <connector name="1B" id="connector10">
+   <part id="855137672" label="Pololu A2" title="Pololu A4988"/>
+  </connector>
+  <connector name="pin1" id="connector0">
+   <part id="127541" label="StpOut2" title="Generic female header - 4 pins"/>
+  </connector>
+  <connector name="pin1" id="connector0">
+   <part id="127540" label="StpOut2" title="Generic female header - 4 pins"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="2A" id="connector12">
+   <part id="855137670" label="Pololu A2" title="Pololu A4988"/>
+  </connector>
+  <connector name="2A" id="connector12">
+   <part id="855137672" label="Pololu A2" title="Pololu A4988"/>
+  </connector>
+  <connector name="pin3" id="connector2">
+   <part id="127541" label="StpOut2" title="Generic female header - 4 pins"/>
+  </connector>
+  <connector name="pin3" id="connector2">
+   <part id="127540" label="StpOut2" title="Generic female header - 4 pins"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="2A" id="connector12">
+   <part id="855137680" label="Pololu A1" title="Pololu A4988"/>
+  </connector>
+  <connector name="2A" id="connector12">
+   <part id="855137682" label="Pololu A1" title="Pololu A4988"/>
+  </connector>
+  <connector name="pin3" id="connector2">
+   <part id="115011" label="StpOut1" title="Generic female header - 4 pins"/>
+  </connector>
+  <connector name="pin3" id="connector2">
+   <part id="115010" label="StpOut1" title="Generic female header - 4 pins"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="2B" id="connector13">
+   <part id="855137670" label="Pololu A2" title="Pololu A4988"/>
+  </connector>
+  <connector name="2B" id="connector13">
+   <part id="855137672" label="Pololu A2" title="Pololu A4988"/>
+  </connector>
+  <connector name="pin4" id="connector3">
+   <part id="127541" label="StpOut2" title="Generic female header - 4 pins"/>
+  </connector>
+  <connector name="pin4" id="connector3">
+   <part id="127540" label="StpOut2" title="Generic female header - 4 pins"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="1B" id="connector10">
+   <part id="855137680" label="Pololu A1" title="Pololu A4988"/>
+  </connector>
+  <connector name="1B" id="connector10">
+   <part id="855137682" label="Pololu A1" title="Pololu A4988"/>
+  </connector>
+  <connector name="pin1" id="connector0">
+   <part id="115011" label="StpOut1" title="Generic female header - 4 pins"/>
+  </connector>
+  <connector name="pin1" id="connector0">
+   <part id="115010" label="StpOut1" title="Generic female header - 4 pins"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="2B" id="connector13">
+   <part id="855137680" label="Pololu A1" title="Pololu A4988"/>
+  </connector>
+  <connector name="2B" id="connector13">
+   <part id="855137682" label="Pololu A1" title="Pololu A4988"/>
+  </connector>
+  <connector name="pin4" id="connector3">
+   <part id="115011" label="StpOut1" title="Generic female header - 4 pins"/>
+  </connector>
+  <connector name="pin4" id="connector3">
+   <part id="115010" label="StpOut1" title="Generic female header - 4 pins"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="1A" id="connector11">
+   <part id="855137680" label="Pololu A1" title="Pololu A4988"/>
+  </connector>
+  <connector name="1A" id="connector11">
+   <part id="855137682" label="Pololu A1" title="Pololu A4988"/>
+  </connector>
+  <connector name="pin2" id="connector1">
+   <part id="115011" label="StpOut1" title="Generic female header - 4 pins"/>
+  </connector>
+  <connector name="pin2" id="connector1">
+   <part id="115010" label="StpOut1" title="Generic female header - 4 pins"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="A5" id="connector37">
+   <part id="104650" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+  <connector name="A5" id="connector37">
+   <part id="104651" label="Part1" title="Arduino Nano (Rev3.0)"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="jumperConnector1" id="connector1">
+   <part id="855090990" label="Jumper2" title="Jumper"/>
+  </connector>
+  <connector name="jumperConnector1" id="connector1">
+   <part id="855090991" label="Jumper2" title="Jumper"/>
+  </connector>
+  <connector name="jumperConnector0" id="connector0">
+   <part id="855090990" label="Jumper2" title="Jumper"/>
+  </connector>
+  <connector name="jumperConnector0" id="connector0">
+   <part id="855090991" label="Jumper2" title="Jumper"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="pad" id="connector0">
+   <part id="855098710" label="Pad1" title="Pad"/>
+  </connector>
+ </net>
+</netlist>
