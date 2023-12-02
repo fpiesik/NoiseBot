@@ -1,30 +1,56 @@
 #include <Servo.h>
+#include <MIDI.h>
+#include <EEPROM.h>
+MIDI_CREATE_DEFAULT_INSTANCE();
+
 Servo servo1;
 Servo servo2;
 
-const int home1_pin = 13;  //Digital input 1
-const int home2_pin = 12;  //Digital input 2
+
+const int nPitch=18;
+int root=26;
+int midiChn=8;
+
+int pPos[nPitch];
+int pPosCalc[nPitch];
+int pPosOff[nPitch];
+
+int actNote;
+
+float stepsMM=6.58;
+float scale = 700;
+float frtConst=17.817;
+int pickPosC=95;
+int pickDstM=2;
+int pickDstO=7;
+bool pickDir;
+
+long actPos;
+
+
+const int home1_pin = 12;  //Digital input 1
+const int home2_pin = 13;  //Digital input 2
 
 //-------choose hardware---------------------
 //uncomment if Hardware V1
-//const int analogAux1_pin = A6;
-//const int analogAux2_pin = A7;
-//const int step1_stpPin = 3;
-//const int step1_dirPin = 2;
-//const int step1_enblPin = 4;
-//const int step2_stpPin = 6; 
-//const int step2_dirPin = 5;
-//const int step2_enblPin = 7;
+const int analogAux1_pin = A6;
+const int analogAux2_pin = A7;
+const int step1_stpPin = 3;
+const int step1_dirPin = 2;
+const int step1_enblPin = 4;
+const int step2_stpPin = 6; 
+const int step2_dirPin = 5;
+const int step2_enblPin = 7;
 
 //uncomment if hardware V2
-const int analogAux1_pin = A0;// A6 Hardware ref1
-const int analogAux2_pin = A1;// A7  "
-const int step1_stpPin = 3;
-const int step1_dirPin = 4; 
-const int step1_enblPin = 2;
-const int step2_stpPin = 6;
-const int step2_dirPin = 7;  
-const int step2_enblPin = 5; 
+//const int analogAux1_pin = A0;// A6 Hardware ref1
+//const int analogAux2_pin = A1;// A7  "
+//const int step1_stpPin = 3;
+//const int step1_dirPin = 4; 
+//const int step1_enblPin = 2;
+//const int step2_stpPin = 6;
+//const int step2_dirPin = 7;  
+//const int step2_enblPin = 5; 
 //--------------------------------------------
 
 const int mosfet1_pin = 10; 
@@ -37,7 +63,7 @@ const int servo2Pin = 8;
 
 bool step1_enbl=0;
 int step1_maxSpd = 240; 
-int step1_homeSpd = 800; 
+int step1_homeSpd = 2000; 
 long step1_startSpd = 5000;
 long step1_brkSteps = 100;
 int step1_rampAmnt = 3;
@@ -468,178 +494,5 @@ if (servo==2 && pos!=0){
 
  if (servo==1 && pos==0) servo1.detach();
  if (servo==2 && pos==0) servo2.detach();
- 
-}
-
-void setup() 
-{                
-  Serial.begin(115200);
-  pinMode(home1_pin, INPUT);
-  
-  pinMode(step1_stpPin, OUTPUT);
-  pinMode(step1_dirPin, OUTPUT);
-  pinMode(step1_enblPin, OUTPUT);
-  
-  pinMode(step2_stpPin, OUTPUT);
-  pinMode(step2_dirPin, OUTPUT);
-  pinMode(step2_enblPin, OUTPUT);
-  
-  pinMode(mosfet1_pin, OUTPUT);
-  pinMode(mosfet2_pin, OUTPUT);
-  
-  
-  digitalWrite(home1_pin, HIGH);
-  step1_homeState = digitalRead(home1_pin);
-  
-  digitalWrite(home2_pin, HIGH);
-  step2_homeState = digitalRead(home2_pin);
-  
-  
-  
-  digitalWrite(step1_stpPin, LOW);
-  digitalWrite(step1_dirPin, LOW);
-  digitalWrite(step1_enblPin, HIGH);
-  
-  digitalWrite(step2_stpPin, LOW);
-  digitalWrite(step2_dirPin, LOW);
-  digitalWrite(step2_enblPin, HIGH);
-  
-  digitalWrite(mosfet1_pin, LOW);
-  digitalWrite(mosfet2_pin, LOW);
-  
-  
-  
-  step_home(2);
-  step_home(1);
- // stepEnbl(1,0);
-  
-  
-  
-}
-
-
-void loop() 
-{
-if (Serial.available()) {
-       
-        serbyte = Serial.read();
-        Serial.println(serbyte);
-        if (serbyte > 200) incoming = serbyte - 200;
-        if (serbyte <= 200){
-            
-            //Stepper1
-            if (incoming == 1) step_home(1);
-            if (incoming == 2) stepEnbl(1,serbyte);
-            if (incoming == 3) step_setSpd(1,serbyte);
-            if (incoming == 4) stepSndpos(1);
-            if (incoming == 5) step1_trgtA=serbyte;
-            if (incoming == 6) {step1_trgtB=serbyte; 
-                                stepGo2pos(1);}
-            //Stepper2 
-            if (incoming == 7) step_home(2);
-            if (incoming == 8) stepEnbl(2,serbyte);
-            if (incoming == 9) step_setSpd(2,serbyte);
-            if (incoming == 10) stepSndpos(2);
-            if (incoming == 11) step2_trgtA=serbyte;
-            if (incoming == 12) step2_trgtB=serbyte, stepGo2pos(2);
-              
-              
-            if (incoming == 13) setServo(1,serbyte);
-            if (incoming == 14) setServo(2,serbyte);
-            if (incoming == 15) mosfet(1,serbyte*100);
-            if (incoming == 16) mosfet(2,serbyte*100);
-                      
-        }  
-
-
-
-}
-
-//------------------------------------------------------------------------------
-
-kick1_currMicro = micros();
-   if(kick1_currMicro - kick1_prvMicro >= kick1_duration || mosfet1_pin==HIGH) {
-   digitalWrite(mosfet1_pin, LOW);
-  }
-kick2_currMicro = micros();
-   if(kick2_currMicro - kick2_prvMicro >= kick2_duration || mosfet2_pin==HIGH) {
-   digitalWrite(mosfet2_pin, LOW);
-  }
-
- 
-  
-//-----------------------------------------------------------------------------  
- if(step1_arrvd==0 && step1_enbl==1){
-   if (step1_pos<step1_trgt) {
-     if(step1_rmpDwn==1)stepRmpdwn(1,step1_rampAmnt);
-     if(step1_rmpDwn==0){
-     stepDir(1,0); 
-     stepRmpup(1);
-   }
-     step1_move=1;}
-   if (step1_pos>step1_trgt) {
-     if(step1_rmpDwn==1)stepRmpdwn(1,step1_rampAmnt);
-     if(step1_rmpDwn==0){
-     stepDir(1,1); 
-     stepRmpup(1);
-   }
-     step1_move=1;}
-   }
-   if (step1_pos==step1_trgt && step1_arrvd==0){
-     step1_move=0; 
-     step1_arrvd=1;
-     step1_arriving=0;
-     stepSndpos(1);  
-     } 
-      
-   
-  //if(digitalRead(home1_pin)==0)step1_pos=0;
- 
-  if (step1_move>0){
-   //stepEnbl(1);
-     if(step1_enbl==1);stepMove(1);
-   }  
-   if (step1_move==0){
-     step1_interval=step1_startSpd;
-     //stepEnbl(0);
-   }
- 
-
-
-//-----------------------------------------------------------------------------  
- if(step2_arrvd==0 && step2_enbl==1){
-   if (step2_pos<step2_trgt) {
-     if(step2_rmpDwn==1)stepRmpdwn(2,step2_rampAmnt);
-     if(step2_rmpDwn==0){
-     stepDir(2,0); 
-     stepRmpup(2);
-   }
-     step2_move=1;}
-   if (step2_pos>step2_trgt) {
-     if(step2_rmpDwn==1)stepRmpdwn(2,step2_rampAmnt);
-     if(step2_rmpDwn==0){
-     stepDir(2,1); 
-     stepRmpup(2);
-   }
-     step2_move=1;}
-   }
-   if (step2_pos==step2_trgt && step2_arrvd==0){
-     step2_move=0; 
-     step2_arrvd=1;
-     step2_arriving=0;
-     stepSndpos(1); 
-     } 
-      
-   
-  //if(digitalRead(home2_pin)==0)step2_pos=0;
- 
-  if (step2_move>0){
-   //stepEnbl(1);
-     if(step2_enbl=1);stepMove(2);   
-  }  
-  if (step2_move==0){
-    step2_interval=step2_startSpd;
-    //stepEnbl(0);
-  }
  
 }

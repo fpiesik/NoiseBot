@@ -44,7 +44,7 @@ module Part1(MotorWidth,Height,CornerFillet)
 
 module Nema17(){
 
-MotorHeight=40;
+MotorHeight=47;
 MotorWidth=42;
 ShaftDiameter=5;
 ShaftLength=28;

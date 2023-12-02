@@ -81,6 +81,8 @@ AudioControlSGTL5000     sgtl5000_2;     //xy=302,254
 //---Audio Modules
 AudioInputI2SQuad        i2s_quad1;      //xy=150,69
 AudioOutputI2SQuad       i2s_quad2;      //xy=365,94
+AudioOutputUSB           usbOut;
+
 AudioMixer4              mix1;
 AudioMixer4              mix2;
 AudioMixer4              mix3;
@@ -150,6 +152,8 @@ AudioConnection          patchCord27(coilAmp3, 0, i2s_quad2, 2);
 AudioConnection          patchCord28(mix1, 0, mix3, 0);
 AudioConnection          patchCord29(mix2, 0, mix3, 1);
 AudioConnection          patchCord30(mix3, 0, i2s_quad2, 3);
+AudioConnection          patchCord31(mix3, 0, usbOut, 0);
+AudioConnection          patchCord32(mix3, 0, usbOut, 1);
 
 
 //---Audio Module bundles
@@ -185,7 +189,7 @@ void setup() {
   Serial1.begin(115200); 
   // Audio connections require memory to work.  For more
   // detailed information, see the MemoryAndCpuUsage example
-  AudioMemory(400);
+  AudioMemory(150);
 
   usbMIDI.setHandleNoteOn(nOn);
   usbMIDI.setHandleNoteOff(nOff);

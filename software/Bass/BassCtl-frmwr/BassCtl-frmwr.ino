@@ -16,6 +16,7 @@
 AudioAnalyzeNoteFrequency tuner;
 AudioInputI2S            i2s1;           //xy=200,69
 AudioOutputI2S           i2s2;           //xy=365,94
+AudioOutputUSB           usbout;
 AudioAmplifier           amp1;
 AudioEffectEnvelope      env1;
 AudioMixer4              bMix;
@@ -24,6 +25,8 @@ AudioConnection          patchCord2(amp1, 0, env1, 0);
 AudioConnection          patchCord3(amp1, 0, bMix, 0);
 AudioConnection          patchCord4(env1, 0, bMix, 1);
 AudioConnection          patchCord5(bMix, 0, i2s2, 0);
+AudioConnection          patchCord5b(bMix, 0, usbout, 0);
+AudioConnection          patchCord5c(bMix, 0, usbout, 1);
 AudioConnection          patchCord7(i2s1, 1, i2s2, 1);
 AudioConnection          patchCord8(amp1, 0, tuner, 0);
 AudioControlSGTL5000     sgtl5000_1;     //xy=302,184
@@ -38,9 +41,9 @@ int root[nStr]={28,28};
 
 int pPos[nPitch]={0,600,1140,1700,2255,2750,3150,3510,3890,4260,4655,4950,5280,5600,5880,6110,6400,6630,6860,7070,7230};
 
-int pickPosC[nStr]={93,95};
+int pickPosC[nStr]={92,95};
 int pickDstM[nStr]={2,2};
-int pickDstO[nStr]={10,10};
+int pickDstO[nStr]={7,10};
 //int pickPosOL[nStr]={85,85};
 //int pickPosOR[nStr]={105,105};
 //int pickPosML[nStr]={94,94};

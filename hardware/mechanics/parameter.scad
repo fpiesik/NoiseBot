@@ -10,7 +10,7 @@ slotWthick=4;
 
 //-------Parameter triplePytho------------------------------------------------
 
-strScale=600;
+strScale=800;
 strDia=3.5;
 strPosX=20;
 strPosY=-20;
@@ -22,8 +22,8 @@ tuner_bDi=8;
 tuner_bDo=22.2;
 tuner_bZ=10;
 tuner_rThick=5;
-//tuner_tDia=strPosX*2; (big)
-tuner_tDia=tuner_bDo+8;
+tuner_tDia=strPosX*2;// (big)
+//tuner_tDia=tuner_bDo+8;// (small)
 tuner_leverZ=10;
 tuner_zPos=225;
 tuner_strDia=strDia[0];
